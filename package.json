@@ -1,0 +1,17 @@
+{
+  "name": "hexcolor-buddy",
+  "engines": {
+    "node": "7.5.x"
+  },
+  "scripts": {
+    "dev": "node node_modules/nodemon/bin/nodemon.js server.js",
+    "start": "node server"
+  },
+  "devDependencies": {
+    "nodemon": "latest"
+  },
+  "dependencies": {
+    "alexa-app": "3.1.0",
+    "express": "4.14.1"
+  }
+}
