@@ -33,7 +33,7 @@ alexaApp.intent("ColorToHex", {
       'cyan'  : '00FFFF'
     };
 
-    let color = request.slot('Color');
+    let color = request.slot(Color);
 
     let selectedColor = colors[color];
 
