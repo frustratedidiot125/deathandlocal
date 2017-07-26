@@ -6,7 +6,7 @@ let alexaApp = new alexa.app('alexa');
 
 let expressApp = express();
 
-alexaApp.express({expressApp: expressApp, router: express.Router(), debug: true});
+alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
 
 alexaApp.launch( (request, response) => {
   let content = `Welcome to Palette Buddy!
@@ -51,11 +51,35 @@ alexaApp.intent(
   }
 );
 
+alexaApp.intent("AMAZON.StopIntent", {
+  "slots": {} },
+//"utterances": [ 
+ //              "help", "help me"
+  //              ]
+//  },
+  function(request, response) {
+    response.say("Ok.").shouldEndSession(true);
+  }
+ );
+
+alexaApp.intent("AMAZON.CancelIntent", {
+  "slots": {} },
+//"utterances": [ 
+ //              "help", "help me"
+  //              ]
+//  },
+  function(request, response) {
+    response.say("Cancelling.").shouldEndSession(true);
+  }
+ );
+
 alexaApp.sessionEnded( (request, response) => {
   let content = 'Thank you for trying Palette Buddy. Have a great day!';
   response.card('Session Ended', content);
   response.say(content);
 });
+
+
 
 expressApp.listen(process.env.PORT || 5000, function() {
     console.log('Palette Buddy Running');
