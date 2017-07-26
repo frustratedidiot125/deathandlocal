@@ -1,4 +1,4 @@
-HexColor Buddy
+Formerly HexColor Buddy-tried expanding the color library.
 --------------
 
 Run on Heroku:
