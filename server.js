@@ -51,6 +51,19 @@ alexaApp.intent(
   }
 );
 
+alexaApp.intent("AMAZON.HelpIntent", {
+  "slots": {} },
+//"utterances": [ 
+ //              "help", "help me"
+  //              ]
+//  },
+  function(request, response) {
+  var HELP_MESSAGE = "Just ask me for a color's hex value by saying, What is Blue or What is Hex for Blue, and I'll give it to you.";
+var HELP_REPROMPT = "Please ask me for a hex value by asking What is Hex for Red?";
+ response.say(HELP_MESSAGE).reprompt(HELP_REPROMPT).shouldEndSession(false);
+  }
+ );
+
 alexaApp.intent("AMAZON.StopIntent", {
   "slots": {} },
 //"utterances": [ 
