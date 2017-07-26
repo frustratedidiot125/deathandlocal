@@ -1,4 +1,4 @@
-Formerly HexColor Buddy-tried expanding the color library.
+Formerly HexColor Buddy-tried expanding the color library to a ridiculous degree. May be the commit that broke the server's back. 
 --------------
 
 Run on Heroku:
