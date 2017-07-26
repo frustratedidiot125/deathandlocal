@@ -25,7 +25,13 @@ alexaApp.intent(
   },
   (request, response) => {
     let colors = {
-      
+      'black' : '000000',
+      'white' : 'ffffff',
+      'red'   : 'ff0000',
+      'green' : '00ff00',
+      'blue'  : '0000ff',
+      'maroon' : '800000',
+      'violet' : 'EE82EE'
     };
 
     let color = request.slot('Color');
