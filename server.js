@@ -1,5 +1,3 @@
-'use strict';
-
 let express = require('express');
 let bodyParser = require('body-parser');
 let alexa = require('alexa-app');
