@@ -29,7 +29,8 @@ alexaApp.intent("ColorToHex", {
       'green' : '00ff00',
       'blue'  : '0000ff',
       'maroon' : '800000',
-      'violet' : 'EE82EE'
+      'violet' : 'EE82EE',
+      'cyan'  : '00FFFF'
     };
 
     let color = request.slot('Color');
