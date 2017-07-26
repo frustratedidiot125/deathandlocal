@@ -17,13 +17,11 @@ alexaApp.launch( (request, response) => {
   response.shouldEndSession(false);
 });
 
-alexaApp.intent(
-  'ColorToHex',
-  {
+alexaApp.intent("ColorToHex", {
     slots: {Color: 'AMAZON.Color'},
-    utterances: ['What is {-|Color}', 'ColorToHex What is Hex for {-|Color}']
+    utterances: ['What is {-|Color}', 'What is Hex for {-|Color}']
   },
-  (request, response) => {
+  function (request, response) {
     let colors = {
       'black' : '000000',
       'white' : 'ffffff',
