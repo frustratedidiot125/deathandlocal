@@ -71,7 +71,7 @@ alexaApp.intent("AMAZON.StopIntent", {
   //              ]
 //  },
   function(request, response) {
-    response.say("Ok.").shouldEndSession(true);
+    response.say("Thank you for trying Palette Buddy. Have a great day!").shouldEndSession(true);
   }
  );
 
@@ -82,7 +82,7 @@ alexaApp.intent("AMAZON.CancelIntent", {
   //              ]
 //  },
   function(request, response) {
-    response.say("Cancelling.").shouldEndSession(true);
+    response.say("Thank you for trying Palette Buddy. Goodbye!").shouldEndSession(true);
   }
  );
 
