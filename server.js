@@ -6,7 +6,7 @@ let alexaApp = new alexa.app('alexa');
 
 let expressApp = express();
 
-alexaApp.express({expressApp: expressApp, router: express.Router(), debug: true});
+alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
 
 alexaApp.launch( (request, response) => {
   let content = `Welcome to Palette Buddy!
