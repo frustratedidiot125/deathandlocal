@@ -185,7 +185,7 @@ alexaApp.intent("ColorToHex", {
     }
     else {
       response.say(`Sorry, I'm not sure what the hex value is for ${color}`);
-      response.shouldEndSession(false);
+      response.shouldEndSession(true);
     }
   }
 );
