@@ -1,6 +1,8 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let alexa = require('alexa-app');
+let phonecodes = require("./phone.json");
+let countries = require("./names.json");
 
 let alexaApp = new alexa.app('alexa');
 
