@@ -11,7 +11,7 @@ let expressApp = express();
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
 
 alexaApp.launch( (request, response) => {
-  let content = `Welcome to phone Buddy! Give me a country name and I\'ll give you the international calling code!';
+  let content = `Welcome to International Call Buddy! Give me a country name and I\'ll give you the international calling code!';
 
   response.card('Welcome', content);
   response.say(content);
