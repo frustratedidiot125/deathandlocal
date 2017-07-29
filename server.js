@@ -38,7 +38,7 @@ alexaApp.intent("Countrytocall", {
       response.shouldEndSession(true);
     }
     else {
-      response.say(`Sorry, I'm not sure what the hex value is for ${color}`);
+      response.say(`I\'m sorry, are you sure ${color) is a valid country? I don\'t recognize it.`);
       response.shouldEndSession(true);
     }
   }
