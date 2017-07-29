@@ -9,11 +9,11 @@ let expressApp = express();
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
 
 alexaApp.launch( (request, response) => {
-  let content = `Welcome to Palette Buddy!
-    Ask me for a color's hex value by saying, What is Blue or What is Hex for Blue?`;
+  let content = `Welcome to phone Buddy! Give me a country name and I\'ll give you the international calling code!'
+
   response.card('Welcome', content);
   response.say(content);
-  response.reprompt('Please ask me for a hex value by asking What is Hex for Red?')
+  response.reprompt('Please Give me a country name, for instance, Israel.')
   response.shouldEndSession(false);
 });
 
