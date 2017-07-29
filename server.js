@@ -19,9 +19,9 @@ alexaApp.launch( (request, response) => {
   response.shouldEndSession(false);
 });
 
-alexaApp.intent("ColorToHex", {
-    slots: {Color: 'AMAZON.Color'},
-    utterances: ['What is {-|Color}', 'What is Hex for {-|Color}']
+alexaApp.intent("Countrytocall", {
+    slots: {Color: 'AMAZON.Country'},
+    utterances: ['What is {-Country}', 'What is Hex for {-|Color}']
   },
   function (request, response) {
     
@@ -51,8 +51,8 @@ alexaApp.intent("AMAZON.HelpIntent", {
   //              ]
 //  },
   function(request, response) {
-  var HELP_MESSAGE = "Just ask me for a color's hex value by saying, What is Blue or What is Hex for Blue, and I'll give it to you.";
-var HELP_REPROMPT = "Please ask me for a hex value by asking What is Hex for Red?";
+  var HELP_MESSAGE = "Give me a country name and I'll give you the international calling code! Try saying Canada, or say stop to exit.";
+var HELP_REPROMPT = "Please give me a country name, or say stop to exit.";
  response.say(HELP_MESSAGE).reprompt(HELP_REPROMPT).shouldEndSession(false);
   }
  );
@@ -64,7 +64,7 @@ alexaApp.intent("AMAZON.StopIntent", {
   //              ]
 //  },
   function(request, response) {
-    response.say("Thank you for trying Palette Buddy. Have a great day!").shouldEndSession(true);
+    response.say("Ok. Goodbye!").shouldEndSession(true);
   }
  );
 
@@ -75,12 +75,12 @@ alexaApp.intent("AMAZON.CancelIntent", {
   //              ]
 //  },
   function(request, response) {
-    response.say("Thank you for trying Palette Buddy. Goodbye!").shouldEndSession(true);
+    response.say("Ok. Goodbye!").shouldEndSession(true);
   }
  );
 
 alexaApp.sessionEnded( (request, response) => {
-  let content = 'Thank you for trying Palette Buddy. Have a great day!';
+  let content = 'Thank you. Goodbye!';
   response.card('Session Ended', content);
   response.say(content);
 });
@@ -88,5 +88,5 @@ alexaApp.sessionEnded( (request, response) => {
 
 
 expressApp.listen(process.env.PORT || 5000, function() {
-    console.log('Palette Buddy Running');
+    console.log('Call buddy Running');
 });
