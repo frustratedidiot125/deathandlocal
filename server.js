@@ -72,8 +72,8 @@ alexaApp.intent("Randomquote", {
 );
 
 alexaApp.intent("Namedquote", {
-    slots: {Famousname: 'AMAZON.Name'}//fullname??
-    utterances: ['Give me a {Famousname} quote', '{Famousname}']
+    slots: {Famousname: 'AMAZON.Name'} //fullname??
+    utterances: ['Give me a {-|Famousname} quote', '{-|Famousname}']
   },
            
     function (request, response) {            
