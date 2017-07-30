@@ -38,21 +38,23 @@ alexaApp.intent("Countrytocall", {
 
   
  //here goes phone anc other var
-    let country = request.slot('Country');
+    let givencountry = request.slot('Country');
 
-    let selabrev = newcountries[country];
+    let selabrev = newcountries[givencountry];
+console.log('country:', givencountry);
+if (selabrev) {
+
     let callingcode = phonecodes[selabrev];
 
-    console.log('country:', country);
+    
 console.log('callingcode:', callingcode);
 
-    if (selcountrycode) {
-      response.say(`The country value for ${color} is <say-as interpret-as='spell-out'>${selectedColor}</say-as>`);
+    if (callingcode) {
+      response.say(`The international calling code for ${givencountry} is <say-as interpret-as='spell-out'>${callingcode}</say-as>`);
       response.shouldEndSession(true);
     }
     else {
-      response.say(`I\'m sorry, are you sure ${color) is a valid country? I don\'t recognize it.`);
-      response.shouldEndSession(true);
+      response.say(`I\'m sorry, I do not recognize ${givencountry). Speaking literally, not diplomatically, I do not know it.');
     }
   }
 );
