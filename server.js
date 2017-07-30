@@ -16,7 +16,7 @@ alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false
 
 
 alexaApp.launch( (request, response) => {
-  let content = `Hi there! Give me a famous name and I'll read you one of their quotes! You can also say random, for a random quote, or stop to exit.`;
+  let content = `Hi there! Give me a famous name and I'll read you one of their quotes! You can also say random quote, for a random quote, or stop to exit.`;
 
   response.card('Welcome', content);
   response.say(content);
