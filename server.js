@@ -34,7 +34,7 @@ alexaApp.intent("Randomquote", {
   let content =  speaker + " said " + randomQuoteskey;
   //let prompt = "Would you like to hear more? You can say another, or stop to exit."
   // **888 --WE NEED TO FIGURE OYT SESSION VARIABLES IE ALEXAAPP SET SESSION OR .SET SESSION VAR OR RES.
-  response.card(randomQuoteskey + " -" + speaker);
+  response.card(speaker, randomQuoteskey);
   response.say(content);
   response.shouldEndSession(true);  
   console.log(content);
@@ -79,9 +79,10 @@ alexaApp.intent("Namedquote", {
     function (request, response) {            
   var reqdname = request.slot('Famousname');
   var quotesome = invert(quotesall);
-  var selectednq = quotesome[reqdname];
-    if (selectednq){
-      let content = reqdname + " once said."+selectednq;
+    var selectednq = quotesome[reqdname];
+  console.log('selectednq:', selectednq)
+  if (selectednq){
+      let content = reqdname + " once said." + selectednq;
       response.card(selectednq + " -" + reqdname);
       response.say(content);
       response.shouldEndSession(true);
