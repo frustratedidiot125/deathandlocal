@@ -1,6 +1,7 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let alexa = require('alexa-app');
+//Let bimap = require('bimap');
 let phonecodes = require("./phone.json");
 let countries = require("./names.json");
 
@@ -24,7 +25,11 @@ alexaApp.intent("Countrytocall", {
     utterances: ['What is {-Country}', 'What is Hex for {-|Color}']
   },
   function (request, response) {
-    
+   
+newcountries = {};
+ $.each(countries,function(key,value){
+        newcountries[value] = String(key);
+    });
   
  //here goes phone anc other var
     let color = request.slot('Color');
