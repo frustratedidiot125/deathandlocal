@@ -4,7 +4,7 @@ let alexa = require('alexa-app');
 //let invert = require('lodash.invert');
 //let keyBy = require('lodash.keyby');
 
-let statesages = require("./ages2.json");
+const salesTax = require('state-sales-tax');
 
 
 let alexaApp = new alexa.app('alexa');
@@ -14,7 +14,7 @@ alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false
 
 
 alexaApp.launch( (request, response) => {
-  let content = `Hi there! Name a state and  I'll  tell you the minimum driving age there.`;
+  let content = `Name a state and  I'll  tell you the current sales tax!`;
 
   response.card('Welcome', content);
   response.say(content);
@@ -24,25 +24,25 @@ alexaApp.launch( (request, response) => {
 
  
 
-alexaApp.intent("Startstate", {
+alexaApp.intent("Taxedstate", {
     slots: {State: 'AMAZON.US_STATE'}, //fullname??
-    utterances: ['what\'s the driving age in {-|State}', '{-|State}']
+    utterances: ['what\'s the {-|State sales tax','whst\'s tge sales tax in {-|State}', '{-|State}']
   },
            
     function (request, response) {            
   var reqdname = request.slot('State');
  
-    var selectednq = statesages[reqdname];
+    var selectednq = salesTax[reqdname];
   
   //console.log('selectednq:', selectednq);
   if (selectednq){
-      let content = "The minimum driving age in " + reqdname + " is " + selectednq + " years old, with a learner's permit.";
+      let content = "The state sales tax on consumer purchases in " + reqdname + " is " + selectednq + " percent.";
   //console.log('content:', content);  
    // response.card(reqdname, selectednq);
       response.say(content);
       response.shouldEndSession(true);
     } else {
-      response.say("I'm sorry, I only know US states. I don't think " + reqdname + " is a valid US state.");
+      response.say("I'm sorry, I only know sales tax in states. I don't think " + reqdname + " is a valid US state.");
       response.shouldEndSession(true);
     }
 }
