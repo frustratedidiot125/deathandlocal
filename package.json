@@ -1,5 +1,5 @@
 {
-  "name": "Quote Bot",
+  "name": "Quotebot",
   "engines": {
     "node": "7.5.x"
   },
