@@ -31,10 +31,10 @@ alexaApp.intent("Randomquote", {
   function (request, response) {
   var randomQuoteskey = Object.keys(quotesall)[Math.floor(Math.random()*Object.keys(quotesall).length)]; //randomQuoteskey is the quote itself
    let speaker = quotesall[randomQuoteskey]; //quote itself serves are key for value speaker of quote
-  let content = "From " + speaker + "<break time='400ms'/> " +  randomQuoteskey;
+  let content =  speaker + "said" + randomQuoteskey;
   //let prompt = "Would you like to hear more? You can say another, or stop to exit."
   // **888 --WE NEED TO FIGURE OYT SESSION VARIABLES IE ALEXAAPP SET SESSION OR .SET SESSION VAR OR RES.
-  response.card("\""+randomQuoteskey+"\""+" -"+speaker);
+  response.card(randomQuoteskey + "-" + speaker);
   response.say(content);
   response.shouldEndSession(true);  
   
@@ -81,8 +81,8 @@ alexaApp.intent("Namedquote", {
   var quotesome = invert(quotesall);
   var selectednq = quotesome[reqdname];
     if (selectednq){
-      let content = quotesall[selectednq] + " once said <break time='300ms'/>"+selectednq;
-      response.card("\"" + selectednq + "\" -" + quotesall[selectednq]);
+      let content = reqdname + " once said."+selectednq;
+      response.card(selectednq + " -" + reqdname]);
       response.say(content);
       response.shouldEndSession(true);
     } else {
