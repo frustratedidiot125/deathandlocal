@@ -32,7 +32,7 @@ alexaApp.intent("Taxedstate", {
     function (request, response) {            
   var reqdname = request.slot('State');
 
-    var selectednq = salesTax().reqdname;
+    var selectednq = salesTax(reqdname);
   
   //console.log('selectednq:', selectednq);
   if (selectednq){
@@ -42,7 +42,7 @@ alexaApp.intent("Taxedstate", {
       response.say(content);
       response.shouldEndSession(true);
     } else {
-      response.say("I'm sorry, I only know sales tax in states. I don't think " + reqdname + " is a US state.");
+      response.say("I'm sorry, I only know sales tax in states. Either " + reqdname + " isn't a US state, or there's something terribly wrong with my servers.");
       response.shouldEndSession(true);
     }
 }
