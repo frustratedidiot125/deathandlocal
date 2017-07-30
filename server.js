@@ -16,24 +16,27 @@ alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false
 
 
 alexaApp.launch( (request, response) => {
-  let content = `Welcome to Common Quotes Quiz! I'll give you a quote and you tell me who you think it's from! Just say give me a quote to start, or stop to exit!`;
+  let content = `Hi there! Give me a famous name and I'll read you one of their quotes! You can also say random, for a random quote, or stop to exit.`;
 
   response.card('Welcome', content);
   response.say(content);
-  response.reprompt('I\m waiting. Just say give me a quote, or stop to exit.')
+  response.reprompt('I\m waiting. Just say a notable name or say random quote, or say stop to exit.')
   response.shouldEndSession(false);
 });
 
-alexaApp.intent("Givemeaquote", {
+alexaApp.intent("Randomquote", {
     slots: {},
-    utterances: ['Give me a quote', 'Try again', 'Hit me', 'Quote me', 'Yes', 'Start']
+    utterances: ['Give me a quote', 'random', 'random quote', 'another', 'hit me again']
   },
   function (request, response) {
   var randomQuoteskey = Object.keys(quotesall)[Math.floor(Math.random()*Object.keys(quotesall).length)]; //randomQuoteskey is the quote itself
    let speaker = quotesall[randomQuoteskey]; //quote itself serves are key for value speaker of quote
-  let contentq = 'Who said. " + randomQuoteskey
+  let content = "From " + speaker + "<break time='400ms'/> " +  randomQuoteskey;
+  //let prompt = "Would you like to hear more? You can say another, or stop to exit."
   // **888 --WE NEED TO FIGURE OYT SESSION VARIABLES IE ALEXAAPP SET SESSION OR .SET SESSION VAR OR RES.
-  
+  response.card("\""+randomQuoteskey+"\""+" -"+speaker);
+  response.say(content);
+  response.shouldEndSession(true);  
   
   
   
@@ -42,7 +45,7 @@ alexaApp.intent("Givemeaquote", {
 //    let givencountry = request.slot('Country');
 
   //  let selabrev = newcountries[givencountry];
-console.log('speaker:', speaker);
+//console.log('speaker:', speaker);
 
   // could be useful:  if (selabrev) {
 
@@ -68,6 +71,27 @@ console.log('speaker:', speaker);
   
 );
 
+alexaApp.intent("Namedquote", {
+    slots: {Famousname: 'AMAZON.Name'}//fullname??
+    utterances: ['Give me a {Famousname} quote', '{Famousname}']
+  },
+           
+    function (request, response) {            
+  var reqdname = request.slot('Famousname');
+  var quotesome = invert(quotesall);
+  var selectednq = quotesome[reqdname];
+    if (selectednq){
+      let content = quotesall[selectednq] + " once said <break time='300ms'/>"+selectednq;
+      response.card("\"" + selectednq + "\" -" + quotesall[selectednq]);
+      response.say(content);
+      response.shouldEndSession(true);
+    } else {
+      response.say("I'm sorry, I don't have any quotes from " + reqdname);
+      response.shouldEndSession(true);
+    }
+}
+                );
+
 alexaApp.intent("AMAZON.HelpIntent", {
   "slots": {} },
 //"utterances": [ 
@@ -75,8 +99,8 @@ alexaApp.intent("AMAZON.HelpIntent", {
   //              ]
 //  },
   function(request, response) {
-  var HELP_MESSAGE = "Give me a country name and I'll give you the international calling code! Try saying Canada, or say stop to exit.";
-var HELP_REPROMPT = "Please give me a country name, or say stop to exit.";
+  var HELP_MESSAGE = "Give me a famous name and I'll read you one of their quotes! You can also say random, for a random quote, or stop to exit.";
+var HELP_REPROMPT = "Please give me a name, say random, or say stop to exit.";
  response.say(HELP_MESSAGE).reprompt(HELP_REPROMPT).shouldEndSession(false);
   }
  );
