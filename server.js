@@ -80,10 +80,12 @@ alexaApp.intent("Namedquote", {
   var reqdname = request.slot('Famousname');
   var quotesome = invert(quotesall);
     var selectednq = quotesome[reqdname];
+  
   console.log('selectednq:', selectednq)
   if (selectednq){
       let content = reqdname + " once said." + selectednq;
-      response.card(selectednq + " -" + reqdname);
+    console.log('content:', content);  
+    response.card(selectednq + " -" + reqdname);
       response.say(content);
       response.shouldEndSession(true);
     } else {
