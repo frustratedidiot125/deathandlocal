@@ -1,5 +1,5 @@
 {
-  "name": "hexcolor-buddy",
+  "name": "International-calling-buddy",
   "engines": {
     "node": "7.5.x"
   },
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "alexa-app": "3.1.0",
-    "express": "4.14.1"
+    "express": "4.14.1",
+    "bimap" : "0.0.17"
   }
 }
