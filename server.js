@@ -42,7 +42,7 @@ alexaApp.intent("Taxedstate", {
       response.say(content);
       response.shouldEndSession(true);
     } else {
-      response.say("I'm sorry, I only know sales tax in states. I don't think " + reqdname + " is a valid US state.");
+      response.say("I'm sorry, I only know sales tax in states. I don't think " + reqdname + " is a US state.");
       response.shouldEndSession(true);
     }
 }
