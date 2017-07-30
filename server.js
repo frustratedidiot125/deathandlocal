@@ -34,7 +34,7 @@ alexaApp.intent("Startstate", {
  
     var selectednq = statesages[reqdname];
   
-  console.log('selectednq:', selectednq)
+  console.log('selectednq:', selectednq);
   if (selectednq){
       let content = "The minimum driving age in " + reqdname + " is " + selectednq + " years old, with a learner's permit.";
     console.log('content:', content);  
