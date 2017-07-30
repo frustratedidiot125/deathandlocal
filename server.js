@@ -72,7 +72,7 @@ alexaApp.intent("Randomquote", {
 );
 
 alexaApp.intent("Namedquote", {
-    slots: {Famousname: 'AMAZON.Name'} //fullname??
+    slots: {Famousname: 'AMAZON.Name'}, //fullname??
     utterances: ['Give me a {-|Famousname} quote', '{-|Famousname}']
   },
            
