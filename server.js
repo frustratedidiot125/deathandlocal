@@ -37,7 +37,7 @@ alexaApp.intent("Randomquote", {
   response.card(randomQuoteskey + "-" + speaker);
   response.say(content);
   response.shouldEndSession(true);  
-  
+  console.log(content);
   
   
   
