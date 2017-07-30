@@ -54,9 +54,14 @@ console.log('callingcode:', callingcode);
       response.shouldEndSession(true);
     }
     else {
-      response.say(`I\'m sorry, I do not recognize ${givencountry). Speaking literally, not diplomatically, I do not know it.');
+      response.say(`I\'m sorry, I do not have a calling code on file for ${givencountry). I might suggesr suggest you try using a carrier pigeon instead. ');
+    }
+      else {
+      response.say(`I\'m sorry, I do not recognize ${givencountry), Speaking literally, not diplomatically.');
     }
   }
+  
+  
 );
 
 alexaApp.intent("AMAZON.HelpIntent", {
