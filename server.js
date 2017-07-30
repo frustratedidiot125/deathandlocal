@@ -10,19 +10,13 @@ let quotesall = require("./quotes1.json");
 
 
 let alexaApp = new alexa.app('alexa');
-
 let expressApp = express();
-
-
-let newcountries = invert(countries);
-
-
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
+///---------
 
-var randomQuoteskey = Object.keys(quotesall)[Math.floor(Math.random()*Object.keys(quotesall).length)];
 
 alexaApp.launch( (request, response) => {
-  let content = `Welcome to Common Quotes Quiz! I'll give you a quote and you tell me who you think it's from! Just say give me a quote!`;
+  let content = `Welcome to Common Quotes Quiz! I'll give you a quote and you tell me who you think it's from! Just say give me a quote, or atop to exit!`;
 
   response.card('Welcome', content);
   response.say(content);
@@ -30,18 +24,19 @@ alexaApp.launch( (request, response) => {
   response.shouldEndSession(false);
 });
 
-alexaApp.intent("Countrytocall", {
-    slots: {Country: 'AMAZON.Country'},
-    utterances: ['What is {-Country}', 'What is Hex for {-|Color}']
+alexaApp.intent("Givemeaquote", {
+    slots: {},
+    utterances: ['Give me a quote', 'Try again', 'Hit me', 'Quote me', 'Yes']
   },
   function (request, response) {
-   
-
+  var randomQuoteskey = Object.keys(quotesall)[Math.floor(Math.random()*Object.keys(quotesall).length)]; //randomQuoteskey is the quote itself
+   let speaker = quotesall(randomQuoteskey); //quote itself serves are key for value speaker of quote
+  
   
  //here goes phone anc other var
-    let givencountry = request.slot('Country');
+//    let givencountry = request.slot('Country');
 
-    let selabrev = newcountries[givencountry];
+  //  let selabrev = newcountries[givencountry];
 console.log('country:', givencountry);
 if (selabrev) {
 
