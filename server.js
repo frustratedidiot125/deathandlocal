@@ -31,8 +31,8 @@ alexaApp.intent("Taxedstate", {
            
     function (request, response) {            
   var reqdname = request.slot('State');
- 
-    var selectednq = salesTax[reqdname];
+
+    var selectednq = salesTax(){reqdname];
   
   //console.log('selectednq:', selectednq);
   if (selectednq){
@@ -55,7 +55,7 @@ alexaApp.intent("AMAZON.HelpIntent", {
   //              ]
 //  },
   function(request, response) {
-  var HELP_MESSAGE = "Name a US state and  I'll try to tell you the minimum driving age there, or You can also say stop to exit. ";
+  var HELP_MESSAGE = "Name a US state and  I'll tell you the sales tax, You can also say stop to exit. ";
 var HELP_REPROMPT = "Name a state or say stop to exit.";
  response.say(HELP_MESSAGE).reprompt(HELP_REPROMPT).shouldEndSession(false);
   }
