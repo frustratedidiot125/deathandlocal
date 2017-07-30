@@ -30,14 +30,14 @@ alexaApp.intent("Givemeaquote", {
   },
   function (request, response) {
   var randomQuoteskey = Object.keys(quotesall)[Math.floor(Math.random()*Object.keys(quotesall).length)]; //randomQuoteskey is the quote itself
-   let speaker = quotesall(randomQuoteskey); //quote itself serves are key for value speaker of quote
+   let speaker = quotesall[randomQuoteskey]; //quote itself serves are key for value speaker of quote
   
   
  //here goes phone anc other var
 //    let givencountry = request.slot('Country');
 
   //  let selabrev = newcountries[givencountry];
-console.log('country:', givencountry);
+console.log('speaker:', speaker);
 if (selabrev) {
 
     let callingcode = phonecodes[selabrev];
