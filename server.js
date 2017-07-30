@@ -5,8 +5,8 @@ let invert = require('lodash.invert');
 let keyBy = require('lodash.keyby');
 //let phonecodes = require("./phone.json");
 //let countries = require("./names.json");
-let quotesall = require("./quotes1.json");
-//let quotesall = require("./quotesfbig.json");
+//let quotesall = require("./quotes1.json");
+let quotesall = require("./quotesfbig.json");
 
 
 let alexaApp = new alexa.app('alexa');
