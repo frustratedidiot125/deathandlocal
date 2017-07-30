@@ -12,7 +12,7 @@ let alexaApp = new alexa.app('alexa');
 let expressApp = express();
 
 
-let newcountries = _.invert(countries);
+let newcountries = invert(countries);
 
 
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
