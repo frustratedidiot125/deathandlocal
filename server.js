@@ -19,12 +19,14 @@ let newcountries = invert(countries);
 
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
 
+var randomQuoteskey = Object.keys(quotesall)[Math.floor(Math.random()*Object.keys(quotesall).length)];
+
 alexaApp.launch( (request, response) => {
-  let content = `Welcome to International Call Buddy! Give me a country name and I'll give you the international calling code!`;
+  let content = `Welcome to Common Quotes Quiz! I'll give you a quote and you tell me who you think it's from! Just say give me a quote!`;
 
   response.card('Welcome', content);
   response.say(content);
-  response.reprompt('Please Give me a country name, for instance, Canada.')
+  response.reprompt('I\m waiting. Just say give me a quote, or stop to exit.')
   response.shouldEndSession(false);
 });
 
