@@ -85,7 +85,7 @@ alexaApp.intent("Namedquote", {
   if (selectednq){
       let content = reqdname + " once said. " + selectednq;
     console.log('content:', content);  
-    response.card(selectednq + " -" + reqdname);
+    response.card(reqdname, selectednq);
       response.say(content);
       response.shouldEndSession(true);
     } else {
