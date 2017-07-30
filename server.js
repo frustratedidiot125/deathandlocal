@@ -21,7 +21,7 @@ newcountries = {};
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
 
 alexaApp.launch( (request, response) => {
-  let content = `Welcome to International Call Buddy! Give me a country name and I\'ll give you the international calling code!';
+  let content = `Welcome to International Call Buddy! Give me a country name and I'll give you the international calling code!`;
 
   response.card('Welcome', content);
   response.say(content);
@@ -54,11 +54,11 @@ console.log('callingcode:', callingcode);
       response.shouldEndSession(true);
     }
     else {
-      response.say(`I\'m sorry, I do not have a calling code on file for ${givencountry), though it is a valid country. I might suggest you try using a carrier pigeon instead. ');
+      response.say(`I'm sorry, I do not have a calling code on file for ${givencountry), though it is a valid country. I might suggest you try using a carrier pigeon instead. ');
   response.shouldEndSession(true);
 }
       else {
-      response.say(`I\'m sorry, I do not recognize ${givencountry), Speaking literally, not diplomatically.');
+      response.say(`I'm sorry, I do not recognize ${givencountry), Speaking literally, of course, not diplomatically.`);
  response.shouldEndSession(true);
       }
   }
