@@ -1,7 +1,7 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let alexa = require('alexa-app');
-//Let bimap = require('bimap');
+let invert = require('lodash.invert');
 let phonecodes = require("./phone.json");
 let countries = require("./names.json");
 
@@ -12,10 +12,7 @@ let alexaApp = new alexa.app('alexa');
 let expressApp = express();
 
 
-let newcountries = {};
- $.each(countries,function(key,value){
-        newcountries[value] = String(key);
-    });
+let newcountries = _.invert(countries);
 
 
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
