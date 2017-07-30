@@ -52,13 +52,13 @@ console.log('callingcode:', callingcode);
     if (callingcode) {
       response.say(`The international calling code for ${givencountry} is <say-as interpret-as='spell-out'>${callingcode}</say-as>`);
       response.shouldEndSession(true);
-    }
-    else {
-      response.say(`I'm sorry, I do not have a calling code on file for ${givencountry}, though it is a valid country. I might suggest you try using a carrier pigeon instead. `);
+    
+   } else {
+      response.say(`I\'m sorry, I do not have a calling code on file for ${givencountry}, though it is a valid country. They might not have international calling capabilities. `);
   response.shouldEndSession(true);
 }
       else {
-      response.say(`I'm sorry, I do not recognize ${givencountry}, Speaking literally, of course, not diplomatically.`);
+      response.say(`I\'m sorry, I do not recognize ${givencountry}, Speaking literally, of course, not diplomatically.`);
  response.shouldEndSession(true);
       }
   }
