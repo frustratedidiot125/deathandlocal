@@ -12,7 +12,7 @@ let alexaApp = new alexa.app('alexa');
 let expressApp = express();
 
 
-newcountries = {};
+let newcountries = {};
  $.each(countries,function(key,value){
         newcountries[value] = String(key);
     });
