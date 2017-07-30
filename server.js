@@ -1,8 +1,8 @@
 let express = require('express');
-let bodyParser = require('body-parser');
+//let bodyParser = require('body-parser');
 let alexa = require('alexa-app');
-let invert = require('lodash.invert');
-let keyBy = require('lodash.keyby');
+//let invert = require('lodash.invert');
+//let keyBy = require('lodash.keyby');
 
 let statesages = require("./ages2.json");
 
@@ -26,7 +26,7 @@ alexaApp.launch( (request, response) => {
 
 alexaApp.intent("Startstate", {
     slots: {State: 'AMAZON.US_STATE'}, //fullname??
-    utterances: ['what\'s the driving bage age in {-|State}', '{-|State}']
+    utterances: ['what\'s the driving age in {-|State}', '{-|State}']
   },
            
     function (request, response) {            
@@ -34,11 +34,11 @@ alexaApp.intent("Startstate", {
  
     var selectednq = statesages[reqdname];
   
-  console.log('selectednq:', selectednq);
+  //console.log('selectednq:', selectednq);
   if (selectednq){
       let content = "The minimum driving age in " + reqdname + " is " + selectednq + " years old, with a learner's permit.";
   //console.log('content:', content);  
-    response.card(reqdname, selectednq);
+   // response.card(reqdname, selectednq);
       response.say(content);
       response.shouldEndSession(true);
     } else {
