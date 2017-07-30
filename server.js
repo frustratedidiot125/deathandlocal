@@ -55,10 +55,12 @@ console.log('callingcode:', callingcode);
     }
     else {
       response.say(`I\'m sorry, I do not have a calling code on file for ${givencountry), though it is a valid country. I might suggest you try using a carrier pigeon instead. ');
-    }
+  response.shouldEndSession(true);
+}
       else {
       response.say(`I\'m sorry, I do not recognize ${givencountry), Speaking literally, not diplomatically.');
-    }
+ response.shouldEndSession(true);
+      }
   }
   
   
