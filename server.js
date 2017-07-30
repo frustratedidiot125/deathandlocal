@@ -89,7 +89,7 @@ alexaApp.intent("Namedquote", {
       response.say(content);
       response.shouldEndSession(true);
     } else {
-      response.say("I'm sorry, I don't have any quotes from " + reqdname);
+      response.say("I'm sorry, I can't seem to pull up any " + reqdname + " quotes at the moment.");
       response.shouldEndSession(true);
     }
 }
