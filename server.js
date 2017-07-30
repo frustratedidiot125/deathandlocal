@@ -5,9 +5,18 @@ let alexa = require('alexa-app');
 let phonecodes = require("./phone.json");
 let countries = require("./names.json");
 
+
+
 let alexaApp = new alexa.app('alexa');
 
 let expressApp = express();
+
+
+newcountries = {};
+ $.each(countries,function(key,value){
+        newcountries[value] = String(key);
+    });
+
 
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
 
@@ -21,25 +30,24 @@ alexaApp.launch( (request, response) => {
 });
 
 alexaApp.intent("Countrytocall", {
-    slots: {Color: 'AMAZON.Country'},
+    slots: {Country: 'AMAZON.Country'},
     utterances: ['What is {-Country}', 'What is Hex for {-|Color}']
   },
   function (request, response) {
    
-newcountries = {};
- $.each(countries,function(key,value){
-        newcountries[value] = String(key);
-    });
+
   
  //here goes phone anc other var
-    let color = request.slot('Color');
+    let country = request.slot('Country');
 
-    let selectedColor = colors[color];
+    let selabrev = newcountries[country];
+    let callingcode = phonecodes[selabrev];
 
-    console.log('color:', color);
+    console.log('country:', country);
+console.log('callingcode:', callingcode);
 
-    if (selectedColor) {
-      response.say(`The hex value for ${color} is <say-as interpret-as='spell-out'>${selectedColor}</say-as>`);
+    if (selcountrycode) {
+      response.say(`The country value for ${color} is <say-as interpret-as='spell-out'>${selectedColor}</say-as>`);
       response.shouldEndSession(true);
     }
     else {
@@ -75,7 +83,7 @@ alexaApp.intent("AMAZON.StopIntent", {
 
 alexaApp.intent("AMAZON.CancelIntent", {
   "slots": {} },
-//"utterances": [ 
+//"utterances": [
  //              "help", "help me"
   //              ]
 //  },
