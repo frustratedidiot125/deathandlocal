@@ -57,11 +57,11 @@ console.log('callingcode:', callingcode);
       response.say(`I\'m sorry, I do not have a calling code on file for ${givencountry}. Though I do recognize the country, they might not have international calling capabilities yet. `);
   response.shouldEndSession(true);
 }
-      else {
-      response.say(`I\'m sorry, I do not recognize ${givencountry}, Speaking literally, of course, not diplomatically.`);
+     } else {
+      response.say(`I\'m sorry, I do not recognize ${givencountry}. Speaking literally, of course, not diplomatically.`);
  response.shouldEndSession(true);
       }
-  };
+  }
   
   
 );
