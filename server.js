@@ -38,7 +38,7 @@ alexaApp.intent("Taxedstate", {
 
   
     var tax = taxes[state]; //magic?
-  console.log('state:',state):
+  console.log('state:',state);
   console.log('taxes:',taxes);
   console.log('tax;',tax);
  
