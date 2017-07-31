@@ -1,6 +1,7 @@
 let express = require('express');
 let bodyParser = require('body-parser');
 let alexa = require('alexa-app');
+let taxes = require("./stax2.json");
 //let invert = require('lodash.invert');
 //let keyBy = require('lodash.keyby');
 
@@ -11,7 +12,7 @@ let alexaApp = new alexa.app('alexa');
 let expressApp = express();
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
 ///---------
-let salestaxes = require('./stax2.json');
+
 
 
 alexaApp.launch( (request, response) => {
@@ -31,24 +32,25 @@ alexaApp.intent("Taxedstate", {
   },
            
     function (request, response) {            
-  var reqdname = request.slot('State'); //state dobe requested 
+  var state = request.slot('State'); //state dobe requested 
 //var salesarray = salesTax();
  
 
   
-    var selectednq = salestaxes[reqdname];
-  
-  console.log('selectednq;',selectednq);
+    var tax = taxes[state]; //magic?
+  console.log('state:',state):
+  console.log('taxes:',taxes);
+  console.log('tax;',tax);
  
-console.log('selectednq:', selectednq);
-  if (selectednq){
-      let content = "The state sales tax on consumer purchases in " + reqdname + " is " + selectednq + " percent.";
+
+  if (tax){
+      let content = "The state sales tax on consumer purchases in " + state + " is " + tax + " percent.";
 console.log('content:', content);  
    // response.card(reqdname, selectednq);
       response.say(content);
       response.shouldEndSession(true);
     } else {
-      response.say("I'm sorry, I only know sales tax in states. Either " + reqdname + " isn't a US state, or there's something terribly wrong with my servers.");
+      response.say("I'm sorry, I can't find the sales tax for " + state + " .");
       response.shouldEndSession(true);
     }
 }
