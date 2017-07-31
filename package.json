@@ -16,5 +16,6 @@
     "lodash.invert" : "4.3.0",
     "lodash.keyby" : "4.6.0",
     "state-sales-tax" : "0.0.2"
+    "table-scraper": "0.0.2"
   }
 }
