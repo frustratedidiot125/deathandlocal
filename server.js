@@ -11,7 +11,7 @@ let alexaApp = new alexa.app('alexa');
 let expressApp = express();
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
 ///---------
-let salestaxes = require('./salestax.json');
+let salestaxes = require('./stax1.json');
 
 
 alexaApp.launch( (request, response) => {
@@ -36,9 +36,9 @@ alexaApp.intent("Taxedstate", {
  
 
   
-    var selectednq1 = salestaxes[reqdname];
-  var selectednq = selectednq1 * 100;
-  console.log('selectednq1;',selectednq1);
+    var selectednq = salestaxes[reqdname];
+  
+  console.log('selectednq;',selectednq);
  
 console.log('selectednq:', selectednq);
   if (selectednq){
