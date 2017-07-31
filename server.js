@@ -34,7 +34,7 @@ alexaApp.intent("Taxedstate", {
 var salesarray = salesTax();
   console.log('salesarray:',salesarray);
   
-    var selectednq = salesarray{reqdname};
+    var selectednq = salesarray[reqdname];
   console.log('selectednq;',selectednq);
  
   //console.log('selectednq:', selectednq);
