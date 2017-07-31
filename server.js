@@ -31,9 +31,12 @@ alexaApp.intent("Taxedstate", {
            
     function (request, response) {            
   var reqdname = request.slot('State');
-
-    var selectednq = salesTax(reqdname);
+var salesarray = salesTax();
+  console.log('salesarray:',salesarray);
   
+    var selectednq = salesarray{reqdname};
+  console.log('selectednq;',selectednq);
+ 
   //console.log('selectednq:', selectednq);
   if (selectednq){
       let content = "The state sales tax on consumer purchases in " + reqdname + " is " + selectednq + " percent.";
