@@ -36,7 +36,8 @@ alexaApp.intent("Taxedstate", {
  
 
   
-    var selectednq = salestaxes[reqdname];
+    var selectednq1 = salestaxes[reqdname];
+  var selectednq = selectednq1*100;
   console.log('selectednq;',selectednq);
  
 console.log('selectednq:', selectednq);
