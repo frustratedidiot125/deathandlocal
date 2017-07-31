@@ -11,6 +11,7 @@ let alexaApp = new alexa.app('alexa');
 let expressApp = express();
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
 ///---------
+let salestaxes = require('./salestax.json');
 
 
 alexaApp.launch( (request, response) => {
@@ -33,15 +34,15 @@ alexaApp.intent("Taxedstate", {
   var reqdname = request.slot('State'); //state dobe requested 
 //var salesarray = salesTax();
  
-  console.log('Taxsale:',Taxsale);
+
   
-    var selectednq = Taxsale[reqdname];
+    var selectednq = salestaxes[reqdname];
   console.log('selectednq;',selectednq);
  
-  //console.log('selectednq:', selectednq);
+console.log('selectednq:', selectednq);
   if (selectednq){
       let content = "The state sales tax on consumer purchases in " + reqdname + " is " + selectednq + " percent.";
-  //console.log('content:', content);  
+console.log('content:', content);  
    // response.card(reqdname, selectednq);
       response.say(content);
       response.shouldEndSession(true);
