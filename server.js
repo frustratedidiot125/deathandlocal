@@ -11,7 +11,7 @@ let alexaApp = new alexa.app('alexa');
 let expressApp = express();
 alexaApp.express({expressApp: expressApp, router: express.Router(), debug: false, checkCert: true});
 ///---------
-let salestaxes = require('./stax1.json');
+let salestaxes = require('./stax2.json');
 
 
 alexaApp.launch( (request, response) => {
