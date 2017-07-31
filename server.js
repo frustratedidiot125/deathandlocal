@@ -50,7 +50,7 @@ console.log('content:', content);
       response.say(content);
       response.shouldEndSession(true);
     } else {
-      response.say("I'm sorry, I can't find the sales tax for " + state + " .");
+      response.say("I can't seem to find the sales tax for the state of " + state + " at the moment. I'm sorry,");
       response.shouldEndSession(true);
     }
 }
