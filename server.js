@@ -4,8 +4,8 @@ let alexa = require('alexa-app');
 //let invert = require('lodash.invert');
 //let keyBy = require('lodash.keyby');
 
-const salesTax = require('state-sales-tax');
-
+//const salesTax = require('state-sales-tax');
+const scraper = require('table-scraper');
 
 let alexaApp = new alexa.app('alexa');
 let expressApp = express();
@@ -32,9 +32,34 @@ alexaApp.intent("Taxedstate", {
     function (request, response) {            
   var reqdname = request.slot('State');
 //var salesarray = salesTax();
-  console.log('salesTax:',salesTax());
+ 
   
-    var selectednq = salesarray[reqdname];
+
+var Taxsale = function() {
+  let updatedSalesTaxes = 'http://www.salestaxinstitute.com/resources/rates';
+  let result = {};
+
+  scraper
+    .get(updatedSalesTaxes)
+    .then(function(tableData)  {
+      let tempData = tableData[0];
+
+      tempData.map( function (state) {
+        let percentage = state['State Rate'];
+        result[ state['State']  ] = percentage.slice(0, percentage.indexOf('%') + 1);
+      });
+    });
+
+  return JSON.stringify(result);
+}
+  
+  
+  
+  
+  
+  console.log('Taxsale:',Taxsale);
+  
+    var selectednq = Taxsale[reqdname];
   console.log('selectednq;',selectednq);
  
   //console.log('selectednq:', selectednq);
